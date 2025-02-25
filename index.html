@@ -3,83 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Schedule</title>
+    <title>Hockey Schedule 2025</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
         }
         header {
-            background-color: #4CAF50;
-            padding: 15px;
+            background-color: #003366;
             color: white;
+            padding: 10px 0;
             text-align: center;
         }
-        table {
-            width: 80%;
-            margin: 20px auto;
+        main {
+            padding: 20px;
+            margin: 0 20px;
+        }
+        .schedule-table {
+            width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
-        th, td {
-            padding: 10px;
-            text-align: center;
+        .schedule-table th, .schedule-table td {
             border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
         }
-        th {
-            background-color: #4CAF50;
+        .schedule-table th {
+            background-color: #003366;
             color: white;
         }
-        td {
-            background-color: #fff;
+        .game, .practice {
+            background-color: #e6f7ff;
         }
-        .container {
-            text-align: center;
+        .practice {
+            background-color: #f4e1d2;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Hockey Schedule for 2025</h1>
+    </header>
 
-<header>
-    <h1>Weekly Schedule</h1>
-</header>
+    <main>
+        <h2>Game Dates</h2>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="game">
+                    <td>March 1, 2025</td>
+                    <td>Game</td>
+                </tr>
+                <tr class="game">
+                    <td>April 2, 2025</td>
+                    <td>Game</td>
+                </tr>
+                <tr class="game">
+                    <td>April 3, 2025</td>
+                    <td>Game</td>
+                </tr>
+                <tr class="game">
+                    <td>April 4, 2025</td>
+                    <td>Game</td>
+                </tr>
+            </tbody>
+        </table>
 
-<div class="container">
-    <table>
-        <tr>
-            <th>Day</th>
-            <th>Time</th>
-            <th>Activity</th>
-        </tr>
-        <tr>
-            <td>Monday</td>
-            <td>9:00 AM - 10:00 AM</td>
-            <td>Team Meeting</td>
-        </tr>
-        <tr>
-            <td>Monday</td>
-            <td>10:30 AM - 12:00 PM</td>
-            <td>Work on Project</td>
-        </tr>
-        <tr>
-            <td>Tuesday</td>
-            <td>9:00 AM - 11:00 AM</td>
-            <td>Research and Planning</td>
-        </tr>
-        <tr>
-            <td>Wednesday</td>
-            <td>11:00 AM - 12:30 PM</td>
-            <td>Client Call</td>
-        </tr>
-        <tr>
-            <td>Friday</td>
-            <td>1:00 PM - 3:00 PM</td>
-            <td>Code Review</td>
-        </tr>
-    </table>
-</div>
-
+        <h2>Practice Schedule</h2>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Practice sessions every second Sunday starting February 2, 2025 -->
+                <tr class="practice">
+                    <td>February 2, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>February 16, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>March 2, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>March 16, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>March 30, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>April 13, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>April 27, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>May 11, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>May 25, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>June 8, 2025</td>
+                    <td>Practice</td>
+                </tr>
+                <tr class="practice">
+                    <td>June 22, 2025</td>
+                    <td>Practice</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
