@@ -7,152 +7,156 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #000000; /* Black */
-            color: white;
-            padding: 20px 0;
+            background-color: #f1f8f1;
+            color: #333;
             text-align: center;
-        }
-        main {
-            padding: 20px;
-            margin: 0 20px;
         }
         h1 {
-            color: #008080; /* Teal */
+            color: #006400;
             font-size: 36px;
-            font-weight: bold;
-        }
-        h2 {
-            color: #008080; /* Teal */
-        }
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
             margin-top: 20px;
         }
-        .schedule-table th, .schedule-table td {
+        .highlight {
+            color: #ff6347;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
             border: 1px solid #ddd;
-            padding: 10px;
             text-align: center;
         }
-        .schedule-table th {
-            background-color: #000000; /* Black */
+        th {
+            background-color: #228b22;
             color: white;
         }
-        .game {
-            background-color: #008080; /* Teal for games */
-            color: white;
+        td {
+            background-color: #f9f9f9;
         }
-        .skate, .extra-skate {
-            background-color: #4db8b8; /* Light teal for skates */
-            color: black;
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .saint-patrick {
+            background-color: #228b22;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .schedule {
+            background-color: #32cd32;
+        }
+        .important {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>
+
+    <!-- Special Event -->
+    <div class="highlight">
+        <h2>Jett’s Birthday Party at Capital Subaru - May 24th!</h2>
+    </div>
+
+    <div class="saint-patrick">
         <h1>Bar Down Boys Hockey Schedule</h1>
-    </header>
+        <p>Saint Patrick's Day Special Edition!</p>
+    </div>
 
-    <main>
-        <h2>Yetman’s Paddy’s Day Tournament 2017 Tier Two Schedule</h2>
-        <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Match</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="game">
-                    <td>March 14, 2025</td>
-                    <td>1:10 PM</td>
-                    <td>Bar Down Boys vs Honey Badgers</td>
-                </tr>
-                <tr class="game">
-                    <td>March 15, 2025</td>
-                    <td>10:10 AM</td>
-                    <td>Bar Down Boys vs Wolfpack</td>
-                </tr>
-                <tr class="game">
-                    <td>March 16, 2025</td>
-                    <td>5:00 PM</td>
-                    <td>Bar Down Boys vs Paradise Storm</td>
-                </tr>
-                <tr class="game">
-                    <td>March 17, 2025</td>
-                    <td>8:00 AM</td>
-                    <td>Bar Down Boys vs Shamrocks</td>
-                </tr>
-                <tr class="game">
-                    <td>March 17, 2025</td>
-                    <td>5:00 PM</td>
-                    <td>Championship Game: Bar Down Boys vs Unknown</td>
-                </tr>
-            </tbody>
-        </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Opponent</th>
+                <th>Final Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Yetman’s Paddy’s Day Tournament 2017 -->
+            <tr class="schedule">
+                <td>Friday, March 14th, 2017</td>
+                <td>1:10 PM</td>
+                <td>Bardown Boys vs Honey Badgers</td>
+                <td>4-1 (Bardown Boys)</td>
+            </tr>
+            <tr class="schedule">
+                <td>Saturday, March 15th, 2017</td>
+                <td>10:10 AM</td>
+                <td>Bardown Boys vs Wolfpack</td>
+                <td>6-2 (Bardown Boys)</td>
+            </tr>
+            <tr class="schedule">
+                <td>Sunday, March 16th, 2017</td>
+                <td>5:00 PM</td>
+                <td>Bardown Boys vs Paradise Storm</td>
+                <td>Not yet played</td>
+            </tr>
+            <tr class="schedule">
+                <td>Friday, March 17th, 2017</td>
+                <td>8:00 AM</td>
+                <td>Bardown Boys vs Shamrocks</td>
+                <td>Not yet played</td>
+            </tr>
+            <tr class="schedule">
+                <td>Friday, March 17th, 2017</td>
+                <td>5:00 PM</td>
+                <td>Championship Game: Bardown Boys vs Unknown</td>
+                <td>Not yet played</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <h2>Regular Sunday Skates</h2>
-        <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Regular Sunday Skates every second Sunday starting February 23, 2025 -->
-                <tr class="skate">
-                    <td>February 23, 2025</td>
-                    <td>4:00 PM</td>
-                    <td>Saint Bons</td>
-                </tr>
-                <tr class="skate">
-                    <td>March 9, 2025</td>
-                    <td>4:00 PM</td>
-                    <td>Saint Bons</td>
-                </tr>
-                <tr class="skate">
-                    <td>March 23, 2025</td>
-                    <td>4:00 PM</td>
-                    <td>Saint Bons</td>
-                </tr>
-                <tr class="skate">
-                    <td>April 6, 2025</td>
-                    <td>4:00 PM</td>
-                    <td>Saint Bons</td>
-                </tr>
-                <tr class="skate">
-                    <td>April 20, 2025</td>
-                    <td>4:00 PM</td>
-                    <td>Saint Bons</td>
-                </tr>
-            </tbody>
-        </table>
+    <h2>Regular Sunday Skate</h2>
+    <p>Starting February 23rd, every second Sunday at 4:00 PM at Saint Bons. Here are the upcoming dates:</p>
 
-        <h2>Extra Skate</h2>
-        <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="extra-skate">
-                    <td>March 7, 2025</td>
-                    <td>10:00 AM</td>
-                    <td>CBS Arena</td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Regular Sunday Skate Dates -->
+            <tr>
+                <td>February 23rd</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>March 9th</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>March 23rd</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>April 6th</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>April 20th</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>May 4th</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>May 18th</td>
+                <td>4:00 PM</td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
