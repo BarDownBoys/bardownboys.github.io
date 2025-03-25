@@ -62,7 +62,6 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.7);  /* Black background with opacity */
-            display: flex;
             justify-content: center;
             align-items: center;   /* Center modal content vertically and horizontally */
         }
@@ -194,13 +193,65 @@
             </tr>
             <tr>
                 <td>Yetmans Remembrance Day Tournament</td>
-                <td><a href="Images/img1.jpg" target="_blank">Champions</a></td>
+                <td><a href="#" id="champion-link">Champion</a></td>
             </tr>
             <tr>
                 <td>Yetmans Patty's Day Tournament</td>
-                <td><a href="Images/img2.jpg" target="_blank">Second Place</a></td>
+                <td><a href="#" id="second-place-link">Second Place</a></td>
             </tr>
         </table>
+    
+   
+    <!-- Modal for Champion Image -->
+    <div id="championModal" class="modal">
+        <span class="close" id="closeChampionModal">&times;</span>
+        <img class="modal-content" id="championImage" src="Images/img2.jpg">
     </div>
+
+    <!-- Modal for Second Place Image -->
+    <div id="secondPlaceModal" class="modal">
+        <span class="close" id="closeSecondPlaceModal">&times;</span>
+        <img class="modal-content" id="secondPlaceImage" src="Images/img1.jpg   ">
+    </div>
+
+    <script>
+        // Get modals and links
+        var championModal = document.getElementById("championModal");
+        var secondPlaceModal = document.getElementById("secondPlaceModal");
+
+        var championLink = document.getElementById("champion-link");
+        var secondPlaceLink = document.getElementById("second-place-link");
+
+        var closeChampionModal = document.getElementById("closeChampionModal");
+        var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
+
+        // When the user clicks on the Champion hyperlink, open the champion modal
+        championLink.onclick = function() {
+            championModal.style.display = "flex";  // Use flex to align the modal correctly
+        }
+
+        // When the user clicks on the Second Place hyperlink, open the second place modal
+        secondPlaceLink.onclick = function() {
+            secondPlaceModal.style.display = "flex";  // Use flex to align the modal correctly
+        }
+
+        // When the user clicks on <span> (x), close the respective modal
+        closeChampionModal.onclick = function() {
+            championModal.style.display = "none";  // Hide the champion modal
+        }
+
+        closeSecondPlaceModal.onclick = function() {
+            secondPlaceModal.style.display = "none";  // Hide the second place modal
+        }
+
+        // Close the modal if the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == championModal) {
+                championModal.style.display = "none";  // Hide the champion modal
+            } else if (event.target == secondPlaceModal) {
+                secondPlaceModal.style.display = "none";  // Hide the second place modal
+            }
+        }
+    </script>
 </body>
 </html>
