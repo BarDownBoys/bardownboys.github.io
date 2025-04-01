@@ -38,6 +38,7 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: white;
+            z-index: 1;  /* Ensures the text appears on top of the video */
         }
 
         header h1 {
@@ -50,9 +51,15 @@
             font-size: 1.5rem;
         }
 
+        a {
+            color: white;  /* Set hyperlink text color to white */
+            text-decoration: underline; /* Optional: Adds underline when hovered */
+        }
+
         /* Other styles for the page */
         .container {
             padding: 20px;
+            margin-top: 20px;  /* Prevents content from hiding under the video header */
         }
 
         .schedule, .past-tournaments {
@@ -60,27 +67,27 @@
             margin: 20px 0;
             border-collapse: collapse;
         }
+
         .schedule th, .past-tournaments th, .schedule td, .past-tournaments td {
             padding: 10px;
             border: 1px solid #444;
             text-align: left;
         }
+
         .schedule th, .past-tournaments th {
             background-color: #008080;
         }
+
         .schedule tr:nth-child(even), .past-tournaments tr:nth-child(even) {
             background-color: #333;
         }
+
         .schedule tr:hover, .past-tournaments tr:hover {
             background-color: #555;
         }
+
         .cancelled {
             color: red;
-        }
-
-        a {
-            color: white;  /* Set hyperlink text color to white */
-            text-decoration: underline; /* Optional: Adds underline when hovered */
         }
 
         /* Modal styling */
