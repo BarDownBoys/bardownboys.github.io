@@ -213,7 +213,7 @@
         <div id="championModal" class="modal">
             <span class="close" id="closeChampionModal">&times;</span>
             <video class="modal-content" id="championVideo" controls>
-                <source src="assets/IMG_8018.mp4" type="video/mp4">
+                <source id="champion-video" src="assets/IMG_8018.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -222,7 +222,7 @@
         <div id="secondPlaceModal" class="modal">
             <span class="close" id="closeSecondPlaceModal">&times;</span>
             <video class="modal-content" id="secondPlaceVideo" controls>
-                <source src="assets2/video.mp4" type="video/mp4">
+                <source id="second-place-video" src="assets2/video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -241,28 +241,34 @@
             // When the user clicks on the Champion button, open the champion modal
             championVideoBtn.onclick = function() {
                 championModal.style.display = "flex";  // Use flex to align the modal correctly
+                document.getElementById('championVideo').play(); // Play the video
             }
 
             // When the user clicks on the Second Place button, open the second place modal
             secondPlaceVideoBtn.onclick = function() {
                 secondPlaceModal.style.display = "flex";  // Use flex to align the modal correctly
+                document.getElementById('secondPlaceVideo').play(); // Play the video
             }
 
             // When the user clicks on <span> (x), close the respective modal
             closeChampionModal.onclick = function() {
                 championModal.style.display = "none";  // Hide the champion modal
+                document.getElementById('championVideo').pause(); // Pause the video
             }
 
             closeSecondPlaceModal.onclick = function() {
                 secondPlaceModal.style.display = "none";  // Hide the second place modal
+                document.getElementById('secondPlaceVideo').pause(); // Pause the video
             }
 
             // Close the modal if the user clicks anywhere outside of the modal
             window.onclick = function(event) {
                 if (event.target == championModal) {
                     championModal.style.display = "none";  // Hide the champion modal
+                    document.getElementById('championVideo').pause(); // Pause the video
                 } else if (event.target == secondPlaceModal) {
                     secondPlaceModal.style.display = "none";  // Hide the second place modal
+                    document.getElementById('secondPlaceVideo').pause(); // Pause the video
                 }
             }
         </script>
