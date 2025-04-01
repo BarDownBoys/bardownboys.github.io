@@ -11,12 +11,13 @@
             padding: 0;
             background-color: #1a1a1a;
             color: #fff;
+            overflow-x: hidden;  /* Prevents horizontal scroll */
         }
 
         /* Video Header Section */
         header {
             position: relative;
-            height: 100vh;  /* Full viewport height */
+            height: 60vh;  /* Use 60% of viewport height for the header */
             overflow: hidden;
         }
 
@@ -56,10 +57,9 @@
             text-decoration: underline; /* Optional: Adds underline when hovered */
         }
 
-        /* Other styles for the page */
+        /* Main Content Section */
         .container {
             padding: 20px;
-            margin-top: 20px;  /* Prevents content from hiding under the video header */
         }
 
         .schedule, .past-tournaments {
@@ -163,7 +163,7 @@
             <p id="countdown"></p>
         </div>
 
-        <!-- Tournament Schedule Table (as in your original code) -->
+        <!-- Tournament Schedule Table -->
         <h2>Tournament Schedule</h2>
         <table class="schedule">
             <tr>
@@ -192,7 +192,7 @@
     </div>
 
     <script>
-        // Countdown functionality (as in your original code)
+        // Countdown functionality
         const targetDate = new Date("April 21, 2025 00:00:00");
 
         function updateCountdown() {
