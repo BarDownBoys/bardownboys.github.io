@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -257,17 +257,40 @@
             <tr>
                 <th>Tournament</th>
                 <th>Result</th>
+                <th>Highlight Reel</th>
             </tr>
             <tr>
                 <td>Yetmans Remembrance Day Tournament</td>
                 <td><a href="#" id="champion-link">Champion</a></td>
+                <td><button id="champion-video-btn">Reel</button></td>
+                
             </tr>
             <tr>
                 <td>Yetmans Patty's Day Tournament</td>
                 <td><a href="#" id="second-place-link">Second Place</a></td>
+                <td><button id="second-place-video-btn">Natasha's Reel</button></td>
             </tr>
         </table>
     
+                <!-- Modal for Champion Video -->
+                <div id="championModal" class="modal">
+                    <span class="close" id="closeChampionModal">&times;</span>
+                    <video class="modal-content" id="championVideo" controls>
+                        <source id="champion-video" src="assests/IMG_8018.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+        
+                <!-- Modal for Second Place Video -->
+                <div id="secondPlaceModal" class="modal">
+                    <span class="close" id="closeSecondPlaceModal">&times;</span>
+                    <video class="modal-content" id="secondPlaceVideo" controls>
+                        <source id="second-place-video" src="assests2/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+
    
     <!-- Modal for Champion Image -->
     <div id="championModal" class="modal">
@@ -283,6 +306,54 @@
 
      
     <script>
+
+        // Get modals and buttons
+        var championModal = document.getElementById("championModal");
+        var secondPlaceModal = document.getElementById("secondPlaceModal");
+
+        var championVideoBtn = document.getElementById("champion-video-btn");
+        var secondPlaceVideoBtn = document.getElementById("second-place-video-btn");
+
+        var closeChampionModal = document.getElementById("closeChampionModal");
+        var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
+
+        // When the user clicks on the Champion button, open the champion modal
+        championVideoBtn.onclick = function() {
+            championModal.style.display = "flex";  // Use flex to align the modal correctly
+            document.getElementById('championVideo').play(); // Play the video
+        }
+
+        // When the user clicks on the Second Place button, open the second place modal
+        secondPlaceVideoBtn.onclick = function() {
+            secondPlaceModal.style.display = "flex";  // Use flex to align the modal correctly
+            document.getElementById('secondPlaceVideo').play(); // Play the video
+        }
+
+        // When the user clicks on <span> (x), close the respective modal
+        closeChampionModal.onclick = function() {
+            championModal.style.display = "none";  // Hide the champion modal
+            document.getElementById('championVideo').pause(); // Pause the video
+            document.getElementById('championVideo').currentTime = 0; // Reset video to start
+        }
+
+        closeSecondPlaceModal.onclick = function() {
+            secondPlaceModal.style.display = "none";  // Hide the second place modal
+            document.getElementById('secondPlaceVideo').pause(); // Pause the video
+            document.getElementById('secondPlaceVideo').currentTime = 0; // Reset video to start
+        }
+
+        // Close the modal if the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == championModal) {
+                championModal.style.display = "none";  // Hide the champion modal
+                document.getElementById('championVideo').pause(); // Pause the video
+                document.getElementById('championVideo').currentTime = 0; // Reset video to start
+            } else if (event.target == secondPlaceModal) {
+                secondPlaceModal.style.display = "none";  // Hide the second place modal
+                document.getElementById('secondPlaceVideo').pause(); // Pause the video
+                document.getElementById('secondPlaceVideo').currentTime = 0; // Reset video to start
+            }
+        }
         // Get modals and links
         var championModal = document.getElementById("championModal");
         var secondPlaceModal = document.getElementById("secondPlaceModal");
