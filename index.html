@@ -11,105 +11,66 @@
             padding: 0;
             background-color: #1a1a1a;
             color: #fff;
-            overflow-x: hidden;  /* Prevents horizontal scroll */
         }
-
-        /* Video Header Section */
+        
         header {
-            position: relative;
-            height: 60vh;  /* Use 60% of viewport height for the header */
-            overflow: hidden;
-        }
-
-        /* Video styling */
-        header video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;  /* Ensures the video covers the area without distorting */
-        }
-
-        /* Overlay Content */
-        .header-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            background-color: #008080;
+            padding: 20px;
             text-align: center;
-            color: white;
-            z-index: 1;  /* Ensures the text appears on top of the video */
         }
-
         header h1 {
             margin: 0;
-            font-size: 3rem;
+            color: #fff;
         }
-
-        header h2 {
-            margin: 10px 0;
-            font-size: 1.5rem;
-        }
-
-        a {
-            color: white;  /* Set hyperlink text color to white */
-            text-decoration: underline; /* Optional: Adds underline when hovered */
-        }
-
-        /* Main Content Section */
         .container {
             padding: 20px;
         }
-
         .schedule, .past-tournaments {
             width: 100%;
             margin: 20px 0;
             border-collapse: collapse;
         }
-
         .schedule th, .past-tournaments th, .schedule td, .past-tournaments td {
             padding: 10px;
             border: 1px solid #444;
             text-align: left;
         }
-
         .schedule th, .past-tournaments th {
             background-color: #008080;
         }
-
         .schedule tr:nth-child(even), .past-tournaments tr:nth-child(even) {
             background-color: #333;
         }
-
         .schedule tr:hover, .past-tournaments tr:hover {
             background-color: #555;
         }
-
         .cancelled {
             color: red;
         }
-
-        /* Modal styling */
+        a {
+            color: white;          /* Set hyperlink text color to white */
+            text-decoration: underline; /* Optional: Adds underline when hovered */
+          }
+        
         .modal {
-            display: none;  /* Hidden by default */
-            position: fixed;  /* Stay in place */
-            z-index: 1;  /* Sit on top */
+            display: none;          /* Hidden by default */
+            position: fixed;        /* Stay in place */
+            z-index: 1;             /* Sit on top */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);  /* Black background with opacity */
+            background-color: rgba(0,0,0,0.7);  /* Black background with opacity */
             justify-content: center;
-            align-items: center;  /* Center modal content vertically and horizontally */
+            align-items: center;   /* Center modal content vertically and horizontally */
         }
 
         .modal-content {
-            max-width: 90%;  /* Ensure the image doesn't take up the full screen */
-            max-height: 90%;  /* Ensure the image doesn't overflow the screen */
+            max-width: 90%;         /* Ensure the image doesn't take up the full screen */
+            max-height: 90%;        /* Ensure the image doesn't overflow the screen */
             width: auto;
             height: auto;
-            object-fit: contain;  /* Keeps the image's aspect ratio */
+            object-fit: contain;    /* Keeps the image's aspect ratio */
         }
 
         /* Close button styling */
@@ -133,37 +94,93 @@
         /* Responsive settings */
         @media (max-width: 600px) {
             .modal-content {
-                max-width: 95%;  /* Ensure the modal is almost full width on mobile */
-                max-height: 90%;  /* Prevent image from overflowing the screen */
+                max-width: 95%;      /* Ensure the modal is almost full width on mobile */
+                max-height: 90%;     /* Prevent image from overflowing the screen */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section with Video -->
     <header>
-        <video autoplay loop muted>
-            <source src="assets/video.mp4" type="video/mp4"> <!-- Link to your video -->
-            Your browser does not support the video tag.
-        </video>
-
-        <!-- Text Content Overlaid on the Video -->
-        <div class="header-content">
-            <h1>Bar Down Boys</h1>
-            <h2>Josh's Birthday Party at the Bull Pen - April 19th 2pm</h2>
-            <h2>Landon's birthday <a href="Images/landon.jpg" target="_blank">Party</a> May 10th 12pm - 2pm</h2>
-            <h2>Jett's Birthday Party at Capital Subaru - May 24th 2pm - 4pm</h2>
-        </div>
+        <h1>Bar Down Boys</h1>
+        <h2>Josh's Birthday Party at the Bull Pen - April 19th 2pm</h2>
+        <h2> Landon's birthday <a href="Images/landon.jpg" target="_blank"> Party</a> May 10th 12pm - 2pm<h2>          
+        <h2>Jett's Birthday Party at Capital Subaru - May 24th 2pm - 4pm</h2>
     </header>
 
-    <!-- Main Content Section (the rest of your page) -->
     <div class="container">
-        <h2>COUNT DOWN TO YETMAN'S EASTER TOURNAMENT!</h2>
-        <div class="countdown">
-            <p id="countdown"></p>
-        </div>
-
-        <!-- Tournament Schedule Table -->
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Countdown Timer</title>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding-top: 50px;
+              }
+          
+              .countdown {
+                font-size: 18px;  /* Smaller font size for the countdown */
+                margin-top: 20px;
+              }
+          
+              table {
+                margin-top: 20px;
+                width: 100%;
+                border-collapse: collapse;
+              }
+          
+              table, th, td {
+                border: 1px solid black;
+              }
+          
+              th, td {
+                padding: 10px;
+                text-align: center;
+              }
+            </style>
+          </head>
+          <body>
+          
+            <h2>COUNT DOWN TO YETMAN'S EASTER TOURNAMENT!</h2>
+                        <div class="countdown">
+              <p id="countdown"></p>
+            </div>
+          
+            <script>
+              // Set the target date (April 21, 2025)
+              const targetDate = new Date("April 21, 2025 00:00:00");
+          
+              // Function to update the countdown every second
+              function updateCountdown() {
+                const now = new Date();  // Get the current date/time
+                const timeLeft = targetDate - now;  // Calculate time left in milliseconds
+          
+                if (timeLeft <= 0) {
+                  document.getElementById("countdown").innerHTML = "GAME DAY!";
+                  return;  // Stop updating once the target date has passed
+                }
+          
+                // Calculate years, days, hours, minutes, and seconds
+                const yearsLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 365));  // Approximate years
+                const daysLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+                const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
+          
+                // Display the countdown
+                document.getElementById("countdown").innerHTML = ` ${daysLeft} Days ${hoursLeft} Hours ${minutesLeft} Minutes ${secondsLeft} Seconds`;
+              }
+          
+              // Update the countdown every second
+              setInterval(updateCountdown, 1000);
+          
+              // Initial update on page load
+              updateCountdown();
+            </script>
+                            
+          </body>
         <h2>Tournament Schedule</h2>
         <table class="schedule">
             <tr>
@@ -186,34 +203,123 @@
                 <td>Bar down vs ??</td>
                 <td>Two games. Time to be announced</td>
             </tr>
+           
         </table>
 
-        <!-- The rest of your content (like practice schedules, extra skates, past tournaments) -->
+        <h2>Regular Sunday Skate Practice</h2>
+        <table class="schedule">
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>April 6th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>April 20th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>May 4th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>May 18th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+        </table>
+
+    </table>
+
+    <h2>Extra Skates</h2>
+    <table class="schedule">
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <td>April 18th </td>
+            <td>Subaru practice</td>
+            <td>9:00 AM</td>
+        </tr>
+
+    </table>
+
+        <h2>Past Tournaments</h2>
+        <table class="past-tournaments">
+            <tr>
+                <th>Tournament</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>Yetmans Remembrance Day Tournament</td>
+                <td><a href="#" id="champion-link">Champion</a></td>
+            </tr>
+            <tr>
+                <td>Yetmans Patty's Day Tournament</td>
+                <td><a href="#" id="second-place-link">Second Place</a></td>
+            </tr>
+        </table>
+    
+   
+    <!-- Modal for Champion Image -->
+    <div id="championModal" class="modal">
+        <span class="close" id="closeChampionModal">&times;</span>
+        <img class="modal-content" id="championImage" src="Images/img2.jpg">
     </div>
 
+    <!-- Modal for Second Place Image -->
+    <div id="secondPlaceModal" class="modal">
+        <span class="close" id="closeSecondPlaceModal">&times;</span>
+        <img class="modal-content" id="secondPlaceImage" src="Images/img1.jpg   ">
+    </div>
+
+     
     <script>
-        // Countdown functionality
-        const targetDate = new Date("April 21, 2025 00:00:00");
+        // Get modals and links
+        var championModal = document.getElementById("championModal");
+        var secondPlaceModal = document.getElementById("secondPlaceModal");
 
-        function updateCountdown() {
-            const now = new Date();
-            const timeLeft = targetDate - now;
+        var championLink = document.getElementById("champion-link");
+        var secondPlaceLink = document.getElementById("second-place-link");
 
-            if (timeLeft <= 0) {
-                document.getElementById("countdown").innerHTML = "GAME DAY!";
-                return;
-            }
+        var closeChampionModal = document.getElementById("closeChampionModal");
+        var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
 
-            const daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = `${daysLeft} Days ${hoursLeft} Hours ${minutesLeft} Minutes ${secondsLeft} Seconds`;
+        // When the user clicks on the Champion hyperlink, open the champion modal
+        championLink.onclick = function() {
+            championModal.style.display = "flex";  // Use flex to align the modal correctly
         }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        // When the user clicks on the Second Place hyperlink, open the second place modal
+        secondPlaceLink.onclick = function() {
+            secondPlaceModal.style.display = "flex";  // Use flex to align the modal correctly
+        }
+
+        // When the user clicks on <span> (x), close the respective modal
+        closeChampionModal.onclick = function() {
+            championModal.style.display = "none";  // Hide the champion modal
+        }
+
+        closeSecondPlaceModal.onclick = function() {
+            secondPlaceModal.style.display = "none";  // Hide the second place modal
+        }
+
+        // Close the modal if the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == championModal) {
+                championModal.style.display = "none";  // Hide the champion modal
+            } else if (event.target == secondPlaceModal) {
+                secondPlaceModal.style.display = "none";  // Hide the second place modal
+            }
+        }
     </script>
 </body>
 </html>
