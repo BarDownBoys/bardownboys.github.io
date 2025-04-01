@@ -12,56 +12,7 @@
             background-color: #1a1a1a;
             color: #fff;
         }
-    }
-
-/* Style the header */
-.video-header {
-  position: relative;
-  height: 100vh;  /* Full viewport height */
-  overflow: hidden;
-}
-
-/* Style the video */
-.video-header video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  /* Ensures the video covers the header */
-  z-index: -1;  /* Keeps the video behind the content */
-}
-
-/* Optional: Add an overlay to make the text more readable */
-.video-header .overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
-  border-radius: 10px;
-}
-
-.video-header h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.video-header p {
-  font-size: 1.5rem;
-}
-</style>
-</head>
-<body>
-<header class="video-header">
-<!-- Video element as the backdrop -->
-<video autoplay loop muted>
-  <source src="assets/video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+        
         header {
             background-color: #008080;
             padding: 20px;
