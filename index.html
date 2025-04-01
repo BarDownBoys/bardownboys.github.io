@@ -52,33 +52,9 @@
             background-color: #555;
         }
 
-        .cancelled {
-            color: red;
-        }
-
         a {
             color: white;
             text-decoration: underline;
-        }
-
-        .countdown {
-            font-size: 18px;  /* Smaller font size for the countdown */
-            margin-top: 20px;
-        }
-
-        table {
-            margin-top: 20px;
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
         }
 
         /* Modal styling */
@@ -130,66 +106,6 @@
     </header>
 
     <div class="container">
-        <h2>COUNT DOWN TO YETMAN'S EASTER TOURNAMENT!</h2>
-        <div class="countdown">
-            <p id="countdown"></p>
-        </div>
-
-        <script>
-            // Set the target date (April 21, 2025)
-            const targetDate = new Date("April 21, 2025 00:00:00");
-
-            function updateCountdown() {
-                const now = new Date();  // Get the current date/time
-                const timeLeft = targetDate - now;  // Calculate time left in milliseconds
-
-                if (timeLeft <= 0) {
-                    document.getElementById("countdown").innerHTML = "GAME DAY!";
-                    return;  // Stop updating once the target date has passed
-                }
-
-                // Calculate years, days, hours, minutes, and seconds
-                const yearsLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 365));  // Approximate years
-                const daysLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-                const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                // Display the countdown
-                document.getElementById("countdown").innerHTML = `${daysLeft} Days ${hoursLeft} Hours ${minutesLeft} Minutes ${secondsLeft} Seconds`;
-            }
-
-            // Update the countdown every second
-            setInterval(updateCountdown, 1000);
-
-            // Initial update on page load
-            updateCountdown();
-        </script>
-
-        <h2>Tournament Schedule</h2>
-        <table class="schedule">
-            <tr>
-                <th>Date</th>
-                <th>Event</th>
-                <th>Game Time</th>
-            </tr>
-            <tr>
-                <td>Monday, April 21st</td>
-                <td>Bar down vs ??</td>
-                <td>Two Games. Time to be announced</td>
-            </tr>
-            <tr>
-                <td>Tuesday, April 22nd</td>
-                <td>Bar down vs ??</td>
-                <td>Two games. Time to be announced</td>
-            </tr>
-            <tr>
-                <td>Wednesday, April 23rd</td>
-                <td>Bar down vs ??</td>
-                <td>Two games. Time to be announced</td>
-            </tr>
-        </table>
-
         <h2>Past Tournaments</h2>
         <table class="past-tournaments">
             <tr>
@@ -213,7 +129,7 @@
         <div id="championModal" class="modal">
             <span class="close" id="closeChampionModal">&times;</span>
             <video class="modal-content" id="championVideo" controls>
-                <source id="champion-video" src="assets/IMG_8018.mp4" type="video/mp4">
+                <source id="champion-video" src="assests/IMG_8018.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -222,56 +138,61 @@
         <div id="secondPlaceModal" class="modal">
             <span class="close" id="closeSecondPlaceModal">&times;</span>
             <video class="modal-content" id="secondPlaceVideo" controls>
-                <source id="second-place-video" src="assets2/video.mp4" type="video/mp4">
+                <source id="second-place-video" src="assests2/video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
 
-        <script>
-            // Get modals and buttons
-            var championModal = document.getElementById("championModal");
-            var secondPlaceModal = document.getElementById("secondPlaceModal");
+    </div>
 
-            var championVideoBtn = document.getElementById("champion-video-btn");
-            var secondPlaceVideoBtn = document.getElementById("second-place-video-btn");
+    <script>
+        // Get modals and buttons
+        var championModal = document.getElementById("championModal");
+        var secondPlaceModal = document.getElementById("secondPlaceModal");
 
-            var closeChampionModal = document.getElementById("closeChampionModal");
-            var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
+        var championVideoBtn = document.getElementById("champion-video-btn");
+        var secondPlaceVideoBtn = document.getElementById("second-place-video-btn");
 
-            // When the user clicks on the Champion button, open the champion modal
-            championVideoBtn.onclick = function() {
-                championModal.style.display = "flex";  // Use flex to align the modal correctly
-                document.getElementById('championVideo').play(); // Play the video
-            }
+        var closeChampionModal = document.getElementById("closeChampionModal");
+        var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
 
-            // When the user clicks on the Second Place button, open the second place modal
-            secondPlaceVideoBtn.onclick = function() {
-                secondPlaceModal.style.display = "flex";  // Use flex to align the modal correctly
-                document.getElementById('secondPlaceVideo').play(); // Play the video
-            }
+        // When the user clicks on the Champion button, open the champion modal
+        championVideoBtn.onclick = function() {
+            championModal.style.display = "flex";  // Use flex to align the modal correctly
+            document.getElementById('championVideo').play(); // Play the video
+        }
 
-            // When the user clicks on <span> (x), close the respective modal
-            closeChampionModal.onclick = function() {
+        // When the user clicks on the Second Place button, open the second place modal
+        secondPlaceVideoBtn.onclick = function() {
+            secondPlaceModal.style.display = "flex";  // Use flex to align the modal correctly
+            document.getElementById('secondPlaceVideo').play(); // Play the video
+        }
+
+        // When the user clicks on <span> (x), close the respective modal
+        closeChampionModal.onclick = function() {
+            championModal.style.display = "none";  // Hide the champion modal
+            document.getElementById('championVideo').pause(); // Pause the video
+            document.getElementById('championVideo').currentTime = 0; // Reset video to start
+        }
+
+        closeSecondPlaceModal.onclick = function() {
+            secondPlaceModal.style.display = "none";  // Hide the second place modal
+            document.getElementById('secondPlaceVideo').pause(); // Pause the video
+            document.getElementById('secondPlaceVideo').currentTime = 0; // Reset video to start
+        }
+
+        // Close the modal if the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == championModal) {
                 championModal.style.display = "none";  // Hide the champion modal
                 document.getElementById('championVideo').pause(); // Pause the video
-            }
-
-            closeSecondPlaceModal.onclick = function() {
+                document.getElementById('championVideo').currentTime = 0; // Reset video to start
+            } else if (event.target == secondPlaceModal) {
                 secondPlaceModal.style.display = "none";  // Hide the second place modal
                 document.getElementById('secondPlaceVideo').pause(); // Pause the video
+                document.getElementById('secondPlaceVideo').currentTime = 0; // Reset video to start
             }
-
-            // Close the modal if the user clicks anywhere outside of the modal
-            window.onclick = function(event) {
-                if (event.target == championModal) {
-                    championModal.style.display = "none";  // Hide the champion modal
-                    document.getElementById('championVideo').pause(); // Pause the video
-                } else if (event.target == secondPlaceModal) {
-                    secondPlaceModal.style.display = "none";  // Hide the second place modal
-                    document.getElementById('secondPlaceVideo').pause(); // Pause the video
-                }
-            }
-        </script>
-    </div>
+        }
+    </script>
 </body>
 </html>
