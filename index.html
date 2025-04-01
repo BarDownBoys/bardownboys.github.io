@@ -10,24 +10,52 @@
             margin: 0;
             padding: 0;
             background-color: #1a1a1a;
-            color: #fff;
+            color: white;
         }
 
+        /* Video header section */
         header {
-            background-color: #008080;
-            padding: 20px;
+            position: relative;
+            height: 60vh;  /* 60% of the viewport height */
+            overflow: hidden;
+        }
+
+        /* Video styling */
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay content over video */
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
+            color: white;
+            z-index: 1;
         }
 
         header h1 {
             margin: 0;
-            color: #fff;
+            font-size: 3rem;
+        }
+
+        header h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
         }
 
         .container {
             padding: 20px;
         }
 
+        /* Table Styles */
         .schedule, .past-tournaments {
             width: 100%;
             margin: 20px 0;
@@ -52,145 +80,207 @@
             background-color: #555;
         }
 
-        a {
-            color: white;
-            text-decoration: underline;
+        .cancelled {
+            color: red;
         }
 
-        /* Modal styling */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            color: white;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
+        /* Countdown Style */
+        .countdown {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Bar Down Boys</h1>
-        <h2>Josh's Birthday Party at the Bull Pen - April 19th 2pm</h2>
-        <h2>Landons Birthday <a href="Images/landon.jpg" target="_blank"> Party</a> May 10th 12pm - 2pm</h2>
-        <h2>Jett's Birthday Party at Capital Subaru - May 24th 2pm - 4pm</h2>
+        <video autoplay loop muted>
+            <source src="assets/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="header-content">
+            <h1>Bar Down Boys</h1>
+            <h2>Josh's Birthday Party at the Bull Pen - April 19th 2pm</h2>
+            <h2>Landon's birthday <a href="Images/landon.jpg" target="_blank">Party</a> May 10th 12pm - 2pm</h2>
+            <h2>Jett's Birthday Party at Capital Subaru - May 24th 2pm - 4pm</h2>
+        </div>
     </header>
 
     <div class="container">
+        <!-- Countdown to Yetman's Easter Tournament -->
+        <h2>COUNT DOWN TO YETMAN'S EASTER TOURNAMENT!</h2>
+        <div class="countdown">
+            <p id="countdown"></p>
+        </div>
+
+        <script>
+            // Set the target date (April 21, 2025)
+            const targetDate = new Date("April 21, 2025 00:00:00");
+
+            // Function to update the countdown every second
+            function updateCountdown() {
+                const now = new Date();  // Get the current date/time
+                const timeLeft = targetDate - now;  // Calculate time left in milliseconds
+
+                if (timeLeft <= 0) {
+                    document.getElementById("countdown").innerHTML = "GAME DAY!";
+                    return;  // Stop updating once the target date has passed
+                }
+
+                // Calculate years, days, hours, minutes, and seconds
+                const daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                // Display the countdown
+                document.getElementById("countdown").innerHTML = ` ${daysLeft} Days ${hoursLeft} Hours ${minutesLeft} Minutes ${secondsLeft} Seconds`;
+            }
+
+            // Update the countdown every second
+            setInterval(updateCountdown, 1000);
+
+            // Initial update on page load
+            updateCountdown();
+        </script>
+
+        <!-- Tournament Schedule -->
+        <h2>Tournament Schedule</h2>
+        <table class="schedule">
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+                <th>Game Time</th>
+            </tr>
+            <tr>
+                <td>Monday, April 21st</td>
+                <td>Bar down vs ??</td>
+                <td>Two Games. Time to be announced</td>
+            </tr>
+            <tr>
+                <td>Tuesday, April 22nd</td>
+                <td>Bar down vs ??</td>
+                <td>Two games. Time to be announced</td>
+            </tr>
+            <tr>
+                <td>Wednesday, April 23rd</td>
+                <td>Bar down vs ??</td>
+                <td>Two games. Time to be announced</td>
+            </tr>
+        </table>
+
+        <!-- Regular Sunday Skate Practice Schedule -->
+        <h2>Regular Sunday Skate Practice</h2>
+        <table class="schedule">
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>April 6th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>April 20th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>May 4th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>May 18th</td>
+                <td>Sunday Skate Practice</td>
+                <td>4:00 PM</td>
+            </tr>
+        </table>
+
+        <!-- Extra Skates -->
+        <h2>Extra Skates</h2>
+        <table class="schedule">
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>April 18th</td>
+                <td>Subaru practice</td>
+                <td>9:00 AM</td>
+            </tr>
+        </table>
+
+        <!-- Past Tournaments -->
         <h2>Past Tournaments</h2>
         <table class="past-tournaments">
             <tr>
                 <th>Tournament</th>
                 <th>Result</th>
-                <th>Highlight Reel</th>
             </tr>
             <tr>
                 <td>Yetmans Remembrance Day Tournament</td>
                 <td><a href="#" id="champion-link">Champion</a></td>
-                <td><button id="champion-video-btn">Reel</button></td>
             </tr>
             <tr>
                 <td>Yetmans Patty's Day Tournament</td>
                 <td><a href="#" id="second-place-link">Second Place</a></td>
-                <td><button id="second-place-video-btn">Natasha's Reel</button></td>
             </tr>
         </table>
+    </div>
 
-        <!-- Modal for Champion Video -->
-        <div id="championModal" class="modal">
-            <span class="close" id="closeChampionModal">&times;</span>
-            <video class="modal-content" id="championVideo" controls>
-                <source id="champion-video" src="assests/IMG_8018.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+    <!-- Modal for Champion Image -->
+    <div id="championModal" class="modal">
+        <span class="close" id="closeChampionModal">&times;</span>
+        <img class="modal-content" id="championImage" src="Images/img2.jpg">
+    </div>
 
-        <!-- Modal for Second Place Video -->
-        <div id="secondPlaceModal" class="modal">
-            <span class="close" id="closeSecondPlaceModal">&times;</span>
-            <video class="modal-content" id="secondPlaceVideo" controls>
-                <source id="second-place-video" src="assests2/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
+    <!-- Modal for Second Place Image -->
+    <div id="secondPlaceModal" class="modal">
+        <span class="close" id="closeSecondPlaceModal">&times;</span>
+        <img class="modal-content" id="secondPlaceImage" src="Images/img1.jpg">
     </div>
 
     <script>
-        // Get modals and buttons
+        // Get modals and links
         var championModal = document.getElementById("championModal");
         var secondPlaceModal = document.getElementById("secondPlaceModal");
 
-        var championVideoBtn = document.getElementById("champion-video-btn");
-        var secondPlaceVideoBtn = document.getElementById("second-place-video-btn");
+        var championLink = document.getElementById("champion-link");
+        var secondPlaceLink = document.getElementById("second-place-link");
 
         var closeChampionModal = document.getElementById("closeChampionModal");
         var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
 
-        // When the user clicks on the Champion button, open the champion modal
-        championVideoBtn.onclick = function() {
-            championModal.style.display = "flex";  // Use flex to align the modal correctly
-            document.getElementById('championVideo').play(); // Play the video
+        // When the user clicks on the Champion hyperlink, open the champion modal
+        championLink.onclick = function() {
+            championModal.style.display = "flex";
         }
 
-        // When the user clicks on the Second Place button, open the second place modal
-        secondPlaceVideoBtn.onclick = function() {
-            secondPlaceModal.style.display = "flex";  // Use flex to align the modal correctly
-            document.getElementById('secondPlaceVideo').play(); // Play the video
+        // When the user clicks on the Second Place hyperlink, open the second place modal
+        secondPlaceLink.onclick = function() {
+            secondPlaceModal.style.display = "flex";
         }
 
         // When the user clicks on <span> (x), close the respective modal
         closeChampionModal.onclick = function() {
-            championModal.style.display = "none";  // Hide the champion modal
-            document.getElementById('championVideo').pause(); // Pause the video
-            document.getElementById('championVideo').currentTime = 0; // Reset video to start
+            championModal.style.display = "none";
         }
 
         closeSecondPlaceModal.onclick = function() {
-            secondPlaceModal.style.display = "none";  // Hide the second place modal
-            document.getElementById('secondPlaceVideo').pause(); // Pause the video
-            document.getElementById('secondPlaceVideo').currentTime = 0; // Reset video to start
+            secondPlaceModal.style.display = "none";
         }
 
         // Close the modal if the user clicks anywhere outside of the modal
         window.onclick = function(event) {
             if (event.target == championModal) {
-                championModal.style.display = "none";  // Hide the champion modal
-                document.getElementById('championVideo').pause(); // Pause the video
-                document.getElementById('championVideo').currentTime = 0; // Reset video to start
+                championModal.style.display = "none";
             } else if (event.target == secondPlaceModal) {
-                secondPlaceModal.style.display = "none";  // Hide the second place modal
-                document.getElementById('secondPlaceVideo').pause(); // Pause the video
-                document.getElementById('secondPlaceVideo').currentTime = 0; // Reset video to start
+                secondPlaceModal.style.display = "none";
             }
         }
     </script>
