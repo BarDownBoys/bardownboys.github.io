@@ -103,7 +103,6 @@
 <body>
     <header>
         <h1>Bar Down Boys</h1>
-        <h2>Josh's Birthday Party at the Bull Pen - April 19th 2pm</h2>
         <h2>Emma and Sam's Birthday Birthday Party at Subaru - May 9th 6pm</h2>
         <h2>Landon's birthday <a href="Images/landon.jpg" target="_blank"> Party</a> May 10th 12pm - 2pm</h2>       
         <h2>Jett's Birthday Party at Capital Subaru - May 24th 2pm - 4pm</h2>
@@ -144,79 +143,6 @@
           </head>
           <body>
           
-            <h2>COUNT DOWN TO YETMAN'S EASTER TOURNAMENT!</h2>
-                        <div class="countdown">
-              <p id="countdown"></p>
-            </div>
-          
-            <script>
-              // Set the target date (April 21, 2025)
-              const targetDate = new Date("April 21, 2025 00:00:00");
-          
-              // Function to update the countdown every second
-              function updateCountdown() {
-                const now = new Date();  // Get the current date/time
-                const timeLeft = targetDate - now;  // Calculate time left in milliseconds
-          
-                if (timeLeft <= 0) {
-                  document.getElementById("countdown").innerHTML = "GAME DAY!";
-                  return;  // Stop updating once the target date has passed
-                }
-          
-                // Calculate years, days, hours, minutes, and seconds
-                const yearsLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 365));  // Approximate years
-                const daysLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-                const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
-          
-                // Display the countdown
-                document.getElementById("countdown").innerHTML = ` ${daysLeft} Days ${hoursLeft} Hours ${minutesLeft} Minutes ${secondsLeft} Seconds`;
-              }
-          
-              // Update the countdown every second
-              setInterval(updateCountdown, 1000);
-          
-              // Initial update on page load
-              updateCountdown();
-            </script>
-                            
-          </body>
-        <h2>Tournament Schedule</h2>
-        <table class="schedule">
-            <tr>
-                <th>Date</th>
-                <th>Event</th>
-                <th>Game Time</th>
-            </tr>
-            <tr>
-                <td>Monday, April 21st</td>
-                <td>Bar Down vs Paradise Storm</td>
-                <td> 10:10 AM</td>
-            </tr>
-            <tr>
-                <td>Monday, April 21st</td>
-                <td>Bar Down vs Shamrocks</td>
-                <td> 2:40 PM</td>
-            </tr>
-            <tr>
-                <td>Tuesday, April 22nd</td>
-                <td>Bar Down vs Hot Shots</td>
-                <td>8:00 AM</td>
-            </tr>
-            <tr>
-                <td>Tuesday, April 22nd</td>
-                <td>1st vs  4th  /  2nd vs 3rd</td>
-                <td>11:40 AM or 12:30 PM</td>
-            </tr>
-            <tr>
-                <td>Wednesday, April 23rd</td>
-                <td>Bar Down vs Whoever</td>
-                <td>3:00PM</td>
-            </tr>
-           
-        </table>
-
     </body>
     <h2>COASTLINE CUP!</h2>
     <table class="schedule">
