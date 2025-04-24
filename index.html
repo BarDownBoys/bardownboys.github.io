@@ -277,6 +277,11 @@
                 <td><a href="#" id="second-place-link">Second Place</a></td>
                 <td><a href="assests2/video.mp4" target="_blank">Natasha's Reel</a></td>
             </tr>
+            <tr>
+                <td>Yetmans Easter Tournament</td>
+                <td><a href="#" id="second-place2-link">Second Place</a></td>
+                <td><a href="assests3/second.mp4" target="_blank">Natasha's Reel</a></td>
+            </tr>
         </table>
     </div>
 
@@ -291,34 +296,53 @@
         <img class="modal-content" id="secondPlaceImage" src="Images/img1.jpg">
     </div>
 
+    <div id="secondPlaceModal2" class="modal">
+        <span class="close" id="closeSecondPlace2Modal">&times;</span>
+        <img class="modal-content" id="secondPlaceImage2" src="Images/img3.jpg">
+    </div>
+
     <script>
         // Modal Logic
-        var championModal = document.getElementById("championModal");
-        var secondPlaceModal = document.getElementById("secondPlaceModal");
-        var championLink = document.getElementById("champion-link");
-        var secondPlaceLink = document.getElementById("second-place-link");
-        var closeChampionModal = document.getElementById("closeChampionModal");
-        var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
+    var championModal = document.getElementById("championModal");
+    var secondPlaceModal = document.getElementById("secondPlaceModal");
+    var secondPlaceModal2 = document.getElementById("secondPlaceModal2");
 
-        championLink.onclick = function () {
-            championModal.style.display = "flex";
-        }
-        secondPlaceLink.onclick = function () {
-            secondPlaceModal.style.display = "flex";
-        }
-        closeChampionModal.onclick = function () {
+    var championLink = document.getElementById("champion-link");
+    var secondPlaceLink = document.getElementById("second-place-link");
+    var secondPlaceLink2 = document.getElementById("second-place2-link");
+
+    var closeChampionModal = document.getElementById("closeChampionModal");
+    var closeSecondPlaceModal = document.getElementById("closeSecondPlaceModal");
+    var closeSecondPlace2Modal = document.getElementById("closeSecondPlace2Modal"); // ✅ Matches the corrected ID
+
+    championLink.onclick = function () {
+        championModal.style.display = "flex";
+    }
+    secondPlaceLink.onclick = function () {
+        secondPlaceModal.style.display = "flex";
+    }
+    secondPlaceLink2.onclick = function () {
+        secondPlaceModal2.style.display = "flex";
+    }
+    closeChampionModal.onclick = function () {
+        championModal.style.display = "none";
+    }
+    closeSecondPlaceModal.onclick = function () {
+        secondPlaceModal.style.display = "none";
+    }
+    closeSecondPlace2Modal.onclick = function () {
+        secondPlaceModal2.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == championModal) {
             championModal.style.display = "none";
-        }
-        closeSecondPlaceModal.onclick = function () {
+        } else if (event.target == secondPlaceModal) {
             secondPlaceModal.style.display = "none";
+        } else if (event.target == secondPlaceModal2) {
+            secondPlaceModal2.style.display = "none";
         }
-        window.onclick = function (event) {
-            if (event.target == championModal) {
-                championModal.style.display = "none";
-            } else if (event.target == secondPlaceModal) {
-                secondPlaceModal.style.display = "none";
-            }
-        }
+    }
     </script>
 </body>
 </html>
