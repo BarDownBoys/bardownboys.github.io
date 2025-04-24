@@ -28,6 +28,14 @@
             padding: 20px;
         }
 
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;  /* Bright yellow text */
+            text-align: center;
+            margin-top: 20px;
+        }
+
         h2 {
             margin-top: 40px;
             color: #ffff;
@@ -154,7 +162,43 @@
             </tr>
         </table>
 
-        <h2>BLIZZARD EASTER ACTION!</h2>
+        
+        <h2>COUNTDOWN TO BLIZZARD'S EASTER TOURNAMENT!</h2>
+<div class="countdown">
+    <p id="countdown"></p>
+</div>
+
+<script>
+    // Set the target date (May 1, 2025 at midnight)
+    const targetDate = new Date("May 2, 2025 00:00:00");
+
+    // Function to update the countdown every second
+    function updateCountdown() {
+        const now = new Date();  // Get the current date/time
+        const timeLeft = targetDate - now;  // Calculate time left in milliseconds
+
+        if (timeLeft <= 0) {
+            document.getElementById("countdown").innerHTML = "GAME DAY!";
+            return;  // Stop updating once the target date has passed
+        }
+
+        // Calculate days, hours, minutes, and seconds left
+        const daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById("countdown").innerHTML = `${daysLeft} Days ${hoursLeft} Hours ${minutesLeft} Minutes ${secondsLeft} Seconds`;
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+
+    // Initial update on page load
+    updateCountdown();
+</script>
+
         <table class="container">
             <tr>
                 <th>Date</th>
