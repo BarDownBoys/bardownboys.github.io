@@ -122,6 +122,8 @@
 <body>
     <header>
         <h1>Bar Down Boys</h1>
+        <h1>🏒🥅</h1>
+        <h1>NOV 1ST -> TEAM BUILDING = HOTEL + POOL + BEERS + HOCKEY @ REGIMENT GAME</h1>
 </a></td>
 
     </header>
@@ -160,19 +162,61 @@
             </tr>
         </table>
   
+    
         <h2>Regular St. Bon's Sunday Skate Practice</h2>
-        <table class="container">
-            <tr>
-                <th>Date</th>
-                <th>Event</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>OCT 20th</td>
-                <td>Sunday Skate Practice</td>
-                <td>4:00 PM</td>
-            </tr>
-        </table>
+
+<table class="container" id="sundaySkateTable">
+    <tr>
+        <th>Date</th>
+        <th>Event</th>
+        <th>Time</th>
+    </tr>
+    <!-- Rows will be added here dynamically -->
+</table>
+
+<script>
+    const table = document.getElementById('sundaySkateTable');
+    const today = new Date();
+    today.setHours(0,0,0,0); // normalize time to midnight
+
+    // Start and end dates
+    let currentDate = new Date('2025-10-19'); // First Sunday
+    const endDate = new Date('2025-11-30');   // End of April
+
+    while (currentDate <= endDate) {
+        if (currentDate >= today) { // only show current or future skates
+            const tr = document.createElement('tr');
+
+            const dateTd = document.createElement('td');
+            // Format date like "OCT 19th"
+            const options = { month: 'short', day: 'numeric' };
+            const formattedDate = currentDate.toLocaleDateString('en-US', options)
+                .replace(/ /, ' ')
+                .replace(/\b(\d+)\b/, (d) => {
+                    const day = parseInt(d);
+                    if (day === 1 || day === 21 || day === 31) return day + 'st';
+                    if (day === 2 || day === 22) return day + 'nd';
+                    if (day === 3 || day === 23) return day + 'rd';
+                    return day + 'th';
+                });
+            dateTd.textContent = formattedDate.toUpperCase();
+            tr.appendChild(dateTd);
+
+            const eventTd = document.createElement('td');
+            eventTd.textContent = 'Sunday Skate Practice';
+            tr.appendChild(eventTd);
+
+            const timeTd = document.createElement('td');
+            timeTd.textContent = '4:00 PM';
+            tr.appendChild(timeTd);
+
+            table.appendChild(tr);
+        }
+        // Move to next Sunday
+        currentDate.setDate(currentDate.getDate() + 7);
+    }
+</script>
+
 
         <h2>Extra Skates</h2>
         <table class="container">
@@ -182,9 +226,9 @@
                 <th>Time</th>
             </tr>
             <tr>
-                <td>????</td>
-                <td>CAN'T GET ICE!</td>
-                <td>????</td>
+                <td>OCT 24th</td>
+                <td>PRACTICE @ CSA</td>
+                <td>4:00PM</td>
             </tr>
         </table>
 
