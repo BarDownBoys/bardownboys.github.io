@@ -128,55 +128,71 @@
     </header>
        
         <h2>Regular St. Bon's Sunday Skate Practice</h2>
+<h2>🏒🥅 Regular St. Bon's Sunday Skate Practice 🥅🏒</h2>
 
-<table class="container" id="sundaySkateTable">
-    <tr>
-        <th>Date</th>
-        <th>Event</th>
-        <th>Time</th>
+<table class="container" id="sundaySkateTable" style="border-collapse: collapse; width: 100%;">
+    <tr style="background-color: #008080;">
+        <th style="padding: 8px; text-align: left;">Date</th>
+        <th style="padding: 8px; text-align: left;">Event</th>
+        <th style="padding: 8px; text-align: left;">Time</th>
     </tr>
-    <!-- Rows will be added here dynamically -->
+    <!-- Rows will be added dynamically -->
 </table>
 
 <script>
     const table = document.getElementById('sundaySkateTable');
+
+    // normalize today's date to midnight
     const today = new Date();
-    today.setHours(0,0,0,0); // normalize time to midnight
+    today.setHours(0, 0, 0, 0);
 
     // Start and end dates
-    let currentDate = new Date('2025-10-19'); // First Sunday
-    const endDate = new Date('2025-11-30');   // End of April
+    let currentDate = new Date(2025, 9, 19);  // Oct 19, 2025
+    const endDate = new Date(2025, 10, 30);   // Nov 30, 2025
+
+    // Format like "OCT 19th"
+    function formatWithSuffix(d) {
+        const options = { month: 'short', day: 'numeric' };
+        let s = d.toLocaleDateString('en-US', options);
+        const num = parseInt(s.replace(/[^0-9]/g, ''), 10);
+        const suffix = (num % 10 === 1 && num !== 11) ? 'st'
+                     : (num % 10 === 2 && num !== 12) ? 'nd'
+                     : (num % 10 === 3 && num !== 13) ? 'rd'
+                     : 'th';
+        const month = s.replace(/[0-9]/g, '').trim().toUpperCase();
+        return `${month} ${num}${suffix}`;
+    }
+
+    let nextSkateHighlighted = false;
 
     while (currentDate <= endDate) {
-        if (currentDate >= today) { // only show current or future skates
+        if (currentDate >= today) {
             const tr = document.createElement('tr');
 
             const dateTd = document.createElement('td');
-            // Format date like "OCT 19th"
-            const options = { month: 'short', day: 'numeric' };
-            const formattedDate = currentDate.toLocaleDateString('en-US', options)
-                .replace(/ /, ' ')
-                .replace(/\b(\d+)\b/, (d) => {
-                    const day = parseInt(d);
-                    if (day === 1 || day === 21 || day === 31) return day + 'st';
-                    if (day === 2 || day === 22) return day + 'nd';
-                    if (day === 3 || day === 23) return day + 'rd';
-                    return day + 'th';
-                });
-            dateTd.textContent = formattedDate.toUpperCase();
-            tr.appendChild(dateTd);
+            dateTd.textContent = formatWithSuffix(currentDate);
+            dateTd.style.padding = "8px";
 
             const eventTd = document.createElement('td');
             eventTd.textContent = 'Sunday Skate Practice';
-            tr.appendChild(eventTd);
+            eventTd.style.padding = "8px";
 
             const timeTd = document.createElement('td');
             timeTd.textContent = '4:00 PM';
-            tr.appendChild(timeTd);
+            timeTd.style.padding = "8px";
 
+            // Bold only the next upcoming skate
+            if (!nextSkateHighlighted) {
+                tr.style.fontWeight = "bold";
+                nextSkateHighlighted = true;
+            }
+
+            tr.appendChild(dateTd);
+            tr.appendChild(eventTd);
+            tr.appendChild(timeTd);
             table.appendChild(tr);
         }
-        // Move to next Sunday
+        // move to next Sunday
         currentDate.setDate(currentDate.getDate() + 7);
     }
 </script>
